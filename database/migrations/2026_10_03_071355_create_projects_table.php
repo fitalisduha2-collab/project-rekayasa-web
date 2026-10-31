@@ -17,7 +17,9 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('teknologi')->nullable();
             $table->string('image')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('Selesai');
+            $table->string('status')->default('active');
+            $table->string('kategori')->nullable();
             $table->timestamps();
         });
     }
