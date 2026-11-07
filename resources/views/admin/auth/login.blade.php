@@ -7,25 +7,23 @@
     <link href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.css') }}" rel="stylesheet">
 </head>
 <style>
-    body{
-        background-image: url('{{ asset("bootstrap-5.3.8-dist/images/unpam-img.png") }}');
+    body {
+        background-image: url('{{ asset("images/unpam-img.png") }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         min-height: 100vh;
-        position: relative;
         margin: 0;
         padding: 0;
+        position: relative;
     }
 
     body::before {
         content: "";
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.45);
         z-index: 0;
     }
 
@@ -41,9 +39,9 @@
 
     .card {
         max-width: 400px;
-        overflow: hidden;
         width: 100%;
         border-radius: 15px;
+        overflow: hidden;
     }
 
     .btn-warning {
