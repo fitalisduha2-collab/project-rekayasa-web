@@ -64,8 +64,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li class="dropdown-item-text text-muted">
+                            <small>{{ Auth::user()->email }}</small>
+                        </li>
+                        <li>
+                            <form action="{{ route('admin.logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -81,11 +94,11 @@
         <div class="flex-grow">
             @yield('content')
         </div>
-    </div>
+    </div> 
 
     <footer class="bg-white text-dark text-center py-3 mt-5 border-top">
         <!-- <div class="container"> -->
-        <p class="mb-0">&copy; {{ date('Y') }} FITALIS KADEI DUHA . 251011700989</p>
+        <p class="mb-0">&copy; {{ date('Y') }} Herlina Triansah - 251011700828.</p>
         <!-- </div> -->
     </footer>
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
