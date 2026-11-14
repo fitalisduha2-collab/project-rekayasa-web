@@ -26,5 +26,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('admin.home');
     })->name('admin.dashboard');
+
+Route::get('/projects/pdf', [AdminProjectController::class, 'cetakPdf'])->name('projects.pdf');
+
     Route::resource('projects', AdminProjectController::class);
+Route::get('/logout', function () {
+    return redirect()->route('home');
+})->name('logout');
 });

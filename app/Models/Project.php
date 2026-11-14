@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    //
     use HasFactory;
 
     protected $table = 'projects';
 
     protected $fillable = [
-        'name',
+        'title',
         'description',
         'teknologi',
         'image',
