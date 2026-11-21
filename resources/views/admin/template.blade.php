@@ -7,6 +7,9 @@
     <title>@yield('title', 'Admin Web Profile')</title>
     <link rel="stylesheet" href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.min.css">
+    <script>
+        const API_TOKEN = "{{ session('api_token') }}";
+    </script>
     <style>
         body {
             background-color: #f8f9fa;
@@ -70,10 +73,10 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         <li class="dropdown-item-text text-muted">
-                            <small>{{ Auth::user()->email }}</small>
+                            <email>{{ Auth::user()->email }}</email>
                         </li>
                         <li>
-                            <form action="{{ route('admin.logout') }}" method="POST">
+                            <form method="POST" action="{{ route('admin.logout') }}">
                                 @csrf
                                 <button type="submit" class="dropdown-item">Logout</button>
                             </form>
@@ -94,11 +97,11 @@
         <div class="flex-grow">
             @yield('content')
         </div>
-    </div> 
+    </div>
 
     <footer class="bg-white text-dark text-center py-3 mt-5 border-top">
         <!-- <div class="container"> -->
-        <p class="mb-0">&copy; {{ date('Y') }} Fitalis Kadei Duha - 251011700989.</p>
+        <p class="mb-0">&copy; {{ date('Y') }} Ahmad Surya Pratama - 251011701082.</p>
         <!-- </div> -->
     </footer>
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
