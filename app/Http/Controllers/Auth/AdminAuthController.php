@@ -26,6 +26,27 @@ class AdminAuthController extends Controller
         // Menggunakan guard default (web / tabel users)
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            $user = Auth::user();
+            $user->tokens()->delete(); // Hapus token lama jika ada
+            $token = $user->createToken('auth_token')->plainTextToken;
+            session(['api_token' => $token]); // Simpan token ke session
+
+            if($request->expectsJson()) {
+                return response()->json([
+                    'message' => 'Login berhasil',
+                    'access_token' => $token,
+                    'token_type' => 'Bearer',
+                    'user' => [
+                        'id' => $user->id,
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'phone' => $user->phone,
+                        'address' => $user->address,
+                        'role' => $user->role,
+                    ],
+                ]);
+            }
+           
             return redirect()->intended(route('admin.dashboard'));
         }
 

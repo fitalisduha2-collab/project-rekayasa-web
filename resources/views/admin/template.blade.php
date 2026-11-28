@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.min.css">
     <script>
         const API_TOKEN = "{{ session('api_token') }}";
+        console.log("API Token:", API_TOKEN);
     </script>
     <style>
         body {
@@ -88,10 +89,11 @@
         <!-- </div> -->
     </nav>
     <div class="sidebar shadow-sm">
-        <h5 class="text-center text-white py-3">Admin Menu</h5>
-        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-        <a href="{{ route('projects.index') }}">Data project</a>
-    </div>
+    <h5 class="text-center text-white py-3">Admin Menu</h5>
+    <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+    <a href="{{ route('admin.projects.index') }}">Data Project</a>
+    <a href="{{ route('admin.users') }}">Data Users</a>
+</div>
 
     <div class="content p-3 d-flex flex-column">
         <div class="flex-grow">
@@ -101,7 +103,7 @@
 
     <footer class="bg-white text-dark text-center py-3 mt-5 border-top">
         <!-- <div class="container"> -->
-        <p class="mb-0">&copy; {{ date('Y') }} Ahmad Surya Pratama - 251011701082.</p>
+        <p class="mb-0">&copy; {{ date('Y') }} Fitalis Duha - 251011700989.</p>
         <!-- </div> -->
     </footer>
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
